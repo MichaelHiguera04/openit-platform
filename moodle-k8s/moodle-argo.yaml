@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: moodle-lab
+  namespace: argocd # Se crea dentro de ArgoCD para que lo administre
+spec:
+  project: default
+  source:
+    repoURL: 'https://charts.bitnami.com/bitnami' # Repositorio oficial industrial
+    targetRevision: 16.x.x # Versión estable del chart de Moodle
+    chart: moodle
+    helm:
+      parameters:
+        - name: moodleUsername
+          value: admin
+        - name: moodlePassword
+          value: Admin12345* # Contraseña de entrada para tu laboratorio
+        - name: mariadb.auth.rootPassword
+          value: root12345*
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: moodle # Se instalará en su propio namespace aislado
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    createNamespace: true # Le ordena a K8s crear el namespace 'moodle' si no existe
