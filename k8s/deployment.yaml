@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: openit-platform
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: openit-platform
+
+  template:
+    metadata:
+      labels:
+        app: openit-platform
+
+    spec:
+      containers:
+      - name: openit-platform
+        image: TU_USUARIO_DOCKER/openit-platform:latest
+
+        ports:
+        - containerPort: 80
