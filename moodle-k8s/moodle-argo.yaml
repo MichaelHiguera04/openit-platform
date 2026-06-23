@@ -24,4 +24,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
-    createNamespace: true # Le ordena a K8s crear el namespace 'moodle' si no existe
+    syncOptions:              # <-- CAMBIAMOS ESTA SECCIÓN
+      - CreateNamespace=true  # <-- ASÍ SE DECLARA CORRECTAMENTE EN ARGOCD
