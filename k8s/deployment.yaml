@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: openit-platform
-        image: TU_USUARIO_DOCKER/openit-platform:latest
+        image: mhiguera0410/openit-platform:latest
 
         ports:
         - containerPort: 80
