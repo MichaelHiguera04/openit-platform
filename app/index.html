@@ -1,23 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<title>OpenIT Platform</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenIT Platform - GitOps Dashboard</title>
+    <!-- Cargando Bootstrap para diseño moderno -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f4f7f6; }
+        .hero-section { background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%); color: white; padding: 60px 0; border-radius: 0 0 20px 20px; }
+        .card-tech { transition: transform 0.2s; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .card-tech:hover { transform: translateY(-5px); }
+    </style>
 </head>
 <body>
 
-<h1>OpenIT Platform</h1>
+    <!-- Menú de Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">OpenIT Platform</a>
+        </div>
+    </nav>
 
-<h2>GitOps Demo</h2>
+    <!-- Encabezado Principal -->
+    <header class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">¡Pipeline GitOps Completado!</h1>
+            <p class="lead">Laboratorio de Automatización en Kubernetes & Proxmox</p>
+            <span class="badge bg-success px-3 py-2 fs-6">Estado: Sincronizado con ArgoCD</span>
+        </div>
+    </header>
 
-<p>Desplegado con:</p>
+    <!-- Contenido / Tecnologías -->
+    <main class="container my-5">
+        <h2 class="text-center mb-4 fw-semibold">Infraestructura del Laboratorio</h2>
+        <div class="row g-4">
+            
+            <!-- Herramienta 1 -->
+            <div class="col-md-4">
+                <div class="card card-tech h-100 p-3 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-primary">GitHub Actions</h5>
+                        <p class="card-text text-muted">Se encarga de la Integración Continua (CI), empaquetando el código en contenedores automáticamente.</p>
+                    </div>
+                </div>
+            </div>
 
-<ul>
-<li>GitHub</li>
-<li>GitHub Actions</li>
-<li>Docker</li>
-<li>ArgoCD</li>
-<li>Kubernetes</li>
-</ul>
+            <!-- Herramienta 2 -->
+            <div class="col-md-4">
+                <div class="card card-tech h-100 p-3 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-danger">Docker Hub</h5>
+                        <p class="card-text text-muted">Almacena de forma segura las imágenes de contenedor compiladas listos para su distribución.</p>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Herramienta 3 -->
+            <div class="col-md-4">
+                <div class="card card-tech h-100 p-3 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-info">ArgoCD & K8s</h5>
+                        <p class="card-text text-muted">Monitorea el repositorio de Git e implementa de manera automatizada los cambios en el clúster.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="text-center py-4 text-muted bg-white border-top">
+        <p class="mb-0">&copy; 2026 OpenIT Platform - Flujo de Despliegue GitOps</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
