@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'https://charts.bitnami.com/bitnami'
-    # ¡Línea de targetRevision eliminada para forzar la última versión!
+    targetRevision: '*'    # <-- EL TRUCO: Asterisco para "la última versión de la tienda"
     chart: moodle
     helm:
       parameters:
