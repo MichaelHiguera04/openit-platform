@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'https://charts.bitnami.com/bitnami'
-    targetRevision: 16.4.5
+    targetRevision: 16.x.x     # <-- CAMBIAMOS ESTO CON COMODINES
     chart: moodle
     helm:
       parameters:
@@ -17,11 +17,6 @@ spec:
           value: Admin12345*
         - name: mariadb.auth.rootPassword
           value: root12345*
-        # --- FORZAMOS IMÁGENES MODERNAS QUE SÍ EXISTEN ---
-        - name: image.tag
-          value: 4.5.0-debian-12-r7
-        - name: mariadb.image.tag
-          value: 11.4.4-debian-12-r1
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: moodle
