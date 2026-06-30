@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'https://charts.bitnami.com/bitnami'
-    targetRevision: 16.x.x     # <-- CAMBIAMOS ESTO CON COMODINES
+    # ¡Línea de targetRevision eliminada para forzar la última versión!
     chart: moodle
     helm:
       parameters:
