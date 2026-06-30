@@ -2,27 +2,32 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: moodle-lab
-  namespace: argocd # Se crea dentro de ArgoCD para que lo administre
+  namespace: argocd
 spec:
   project: default
   source:
-    repoURL: 'https://charts.bitnami.com/bitnami' # Repositorio oficial industrial
-    targetRevision: 16.x.x # Versión estable del chart de Moodle
+    repoURL: 'https://charts.bitnami.com/bitnami'
+    targetRevision: 16.1.8
     chart: moodle
     helm:
       parameters:
         - name: moodleUsername
           value: admin
         - name: moodlePassword
-          value: Admin12345* # Contraseña de entrada para tu laboratorio
+          value: Admin12345*
         - name: mariadb.auth.rootPassword
           value: root12345*
+        # --- FORZAMOS IMÁGENES MODERNAS QUE SÍ EXISTEN ---
+        - name: image.tag
+          value: 4.5.0-debian-12-r7
+        - name: mariadb.image.tag
+          value: 11.4.4-debian-12-r1
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: moodle # Se instalará en su propio namespace aislado
+    namespace: moodle
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-    syncOptions:              # <-- CAMBIAMOS ESTA SECCIÓN
-      - CreateNamespace=true  # <-- ASÍ SE DECLARA CORRECTAMENTE EN ARGOCD
+    syncOptions:
+      - CreateNamespace=true
