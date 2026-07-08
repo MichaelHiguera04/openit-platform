@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://charts.bitnami.com/bitnami'
-    targetRevision: '*'
+    repoURL: registry-1.docker.io/bitnamicharts
+    targetRevision: 28.0.0
     chart: moodle
     helm:
       parameters:
@@ -17,11 +17,6 @@ spec:
           value: Admin12345*
         - name: mariadb.auth.rootPassword
           value: root12345*
-        # --- EL TRUCO PARA SALTARSE LAS VERSIONES ROTAS ---
-        - name: image.tag
-          value: latest
-        - name: mariadb.image.tag
-          value: latest
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: moodle
